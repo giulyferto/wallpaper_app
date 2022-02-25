@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:wallpaper_app/views/image_view.dart';
 
 import '../model/wallpaper_model.dart';
 
 Widget brandName() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Text(
-        "Wallpaper",
-        style: TextStyle(color: Colors.black87),
+  return RichText(
+      text: TextSpan(
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          children: <TextSpan>[
+        TextSpan(text: 'Wallpaper', style: TextStyle(color: Colors.black87)),
+        TextSpan(text: 'Hub', style: TextStyle(color: Colors.blue)),
+      ]
       ),
-      Text(
-        "Hub",
-        style: TextStyle(color: Colors.blue),
-      )
-    ],
   );
 }
 
 Widget wallpapersList({var wallpapers = WallpaperModel, context}) {
   return Container(
     child: GridView.count(
-        shrinkWrap: true,
+      shrinkWrap: true,
       physics: ClampingScrollPhysics(),
       crossAxisCount: 2,
       childAspectRatio: 0.6,
@@ -30,11 +27,26 @@ Widget wallpapersList({var wallpapers = WallpaperModel, context}) {
       crossAxisSpacing: 6.0,
       children: wallpapers.map<Widget>((wallpaper) {
         return GridTile(
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                  child: Image.network(wallpaper.src!.portrait, fit: BoxFit.cover,)),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context)=> ImageView(
+                    imgUrl: wallpaper.src.portrait,
+                  )
+              ));
+            },
+            child: Hero(
+              tag: wallpaper.src.portrait,
+              child: Container(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      wallpaper.src!.portrait,
+                      fit: BoxFit.cover,
+                    )),
+              ),
             ),
+          ),
         );
       }).toList(),
     ),

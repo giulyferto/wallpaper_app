@@ -11,6 +11,16 @@ List<CategoriesModel> getCategories() {
   categories.add(categorieModel);
   categorieModel = new CategoriesModel();
 //
+  categorieModel.imgURL = "https://images.pexels.com/photos/425047/pexels-photo-425047.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+  categorieModel.categorieName = "Buildings";
+  categories.add(categorieModel);
+  categorieModel = new CategoriesModel();
+  //
+  categorieModel.imgURL = "https://images.pexels.com/photos/2114014/pexels-photo-2114014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+  categorieModel.categorieName = "Sky";
+  categories.add(categorieModel);
+  categorieModel = new CategoriesModel();
+  //
   categorieModel.imgURL = "https://images.pexels.com/photos/63325/grizzly-bears-playing-sparring-63325.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
   categorieModel.categorieName = "Wild Life";
   categories.add(categorieModel);
@@ -21,15 +31,6 @@ List<CategoriesModel> getCategories() {
   categories.add(categorieModel);
   categorieModel = new CategoriesModel();
   //
-  categorieModel.imgURL = "https://images.pexels.com/photos/289869/pexels-photo-289869.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "Bikes";
-  categories.add(categorieModel);
-  categorieModel = new CategoriesModel();
-  //
-  categorieModel.imgURL = "https://images.pexels.com/photos/326259/pexels-photo-326259.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "Cars";
-  categories.add(categorieModel);
-  categorieModel = new CategoriesModel();
 
 
   return categories;
